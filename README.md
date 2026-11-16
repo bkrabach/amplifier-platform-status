@@ -91,32 +91,37 @@ These tests exercise the installed import, metadata, publisher, reader, CLI and
 optional hook declaration without Unified, a native runtime, accounts or network
 services. Host event integration and crash/recovery qualification remain separate.
 
-## Ownership
+## Ownership and provenance
 
-This directory is the sole author of the implementation. Its standalone
-wheel owns `amplifier_status` and `amplifier-status`; Unified's existing private
-import and `amplifier-unified-status` command have distinct names and files.
-Unified consumes the exact public artifact selected into generated
-`amplifier_web/status_protocol`, recorded by `components/status-emitter.source.json`.
-Author edits and publication do not refresh that selection. Never edit the
-generated runtime by hand. The two distributions remain safe to coinstall.
-Building or publishing this package does not replace an installed application or
-change its enabled features. Artifact and source hashes identify qualified bytes;
-the version number alone is not a compatibility or adoption claim.
+This history-preserving project is prepared as the public author home at
+`bkrabach/amplifier-platform-status`, with a later transfer to Microsoft planned.
+[PROVENANCE.json](PROVENANCE.json) records the original public Unified source,
+pre-move history, and exact imported runtime/test bytes. Original MIT attribution
+is preserved. The repository name does not rename the `amplifier-status-emitter`
+distribution or `amplifier_status` import.
 
-To update Unified's selected default, download the original four release assets
-from the exact reviewed `status-emitter-v<version>` release, then use the existing
-selection command from the Unified root:
+This import changes no runtime behavior, dependency requirement, package version,
+or maintained test. Unified retains its host integration and policy. Authoring
+handoff and consumer selection are separate reviewed changes; retire Unified’s
+authored project at handoff rather than maintain two authoring copies.
 
-```sh
-python scripts/scheduling_delivery.py select --component status-emitter \
-  --dist /absolute/reviewed-release-assets --revision FULL_PUBLISHED_SOURCE_SHA \
-  --receipt-sha256 REVIEWED_STATUS_EMITTER_SOURCE_JSON_SHA256
-python scripts/scheduling_delivery.py verify --component status-emitter
-```
+The public `amplifier_status` namespace is distinct from Unified’s private
+`amplifier_web.status_protocol`. The packages can coexist without overlapping
+installed files; installing this package does not replace Unified’s selected
+private emitter.
 
-The original receipt retains its actual source path and revision, including
-releases authored at `amplifier_web/status_protocol`. Selection maps only the
-published runtime modules into Unified's private namespace; builds never fetch,
-select, or refresh an artifact. Qualify the ordinary wheel, editable install and
-Git-free source archive plus the coinstallation/uninstall probe before delivery.
+## Existing delivery and future publication
+
+Unified continues to select the immutable [status-emitter-v0.1.0 artifacts](https://github.com/microsoft/amplifier-unified/releases/tag/status-emitter-v0.1.0)
+from their original public producer. The original source receipt, revision,
+subdirectory and hashes remain historical identities; this repository does not
+republish or relabel those artifacts. Unified’s generated `amplifier_web/status_protocol/`
+is selected by `components/status-emitter.source.json` and verified offline during
+normal builds. Do not edit that generated copy by hand.
+
+The [package workflow](.github/workflows/package.yml) builds one wheel and source
+archive, then tests that wheel outside the checkout. It does not publish a release
+or change any consumer. A future publication needs an exact source/artifact
+receipt and review of Unified’s selector for this repository-root project layout;
+the existing selector identifies historical monorepo subdirectories. Source moves
+do not reserve a new version or make the original receipts invalid.
