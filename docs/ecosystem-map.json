@@ -1,0 +1,91 @@
+{
+  "audience": "Developers embedding the documented Python library",
+  "citations": [
+    {
+      "path": "README.md",
+      "ref": "1c25def3e540082367b206d46021fc3128e7e51e",
+      "sha256": "d5a2196e4042b5f97b5b78e98bf384cf93cbb2287589513be4766eaa6dd3e6db",
+      "url": "https://github.com/bkrabach/amplifier-platform-status/blob/1c25def3e540082367b206d46021fc3128e7e51e/README.md"
+    },
+    {
+      "path": "PROVENANCE.json",
+      "ref": "1c25def3e540082367b206d46021fc3128e7e51e",
+      "sha256": "592213e8456cfebf4f2c768bed0995f74c4a03644cd227e582dff23117679b9a",
+      "url": "https://github.com/bkrabach/amplifier-platform-status/blob/1c25def3e540082367b206d46021fc3128e7e51e/PROVENANCE.json"
+    },
+    {
+      "path": "pyproject.toml",
+      "ref": "1c25def3e540082367b206d46021fc3128e7e51e",
+      "sha256": "e52f5acdadd26338870bb13e91e8e46a01cc74a8f40683821e24b1b02737293b",
+      "url": "https://github.com/bkrabach/amplifier-platform-status/blob/1c25def3e540082367b206d46021fc3128e7e51e/pyproject.toml"
+    }
+  ],
+  "display_name": "Amplifier Platform Status",
+  "edges": [
+    {
+      "from": "caller",
+      "relation": "uses",
+      "to": "self"
+    },
+    {
+      "from": "self",
+      "relation": "contains",
+      "to": "part-0"
+    },
+    {
+      "from": "self",
+      "relation": "contains",
+      "to": "part-1"
+    },
+    {
+      "from": "self",
+      "relation": "contains",
+      "to": "part-2"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "self",
+      "kind": "self",
+      "label": "Amplifier Platform Status",
+      "repository": "bkrabach/amplifier-platform-status"
+    },
+    {
+      "id": "caller",
+      "kind": "external",
+      "label": "Calling application (Python API)"
+    },
+    {
+      "id": "part-0",
+      "kind": "internal",
+      "label": "Publisher"
+    },
+    {
+      "id": "part-1",
+      "kind": "internal",
+      "label": "Reader and schema"
+    },
+    {
+      "id": "part-2",
+      "kind": "internal",
+      "label": "CLI and optional hook"
+    }
+  ],
+  "notes": [
+    "This is an independent open-source package hosted by bkrabach, not a Microsoft component in the Constellation family index.",
+    "The public source import preserves its Unified provenance. Source ownership, publication and consumer artifact selection are separate reviewed steps; this listing does not change an existing selection.",
+    "The distribution is amplifier-status-emitter and the import is amplifier_status. Status files are observations, not commands, permissions or execution receipts; missing and stale information remain unknown."
+  ],
+  "page_kind": "supporting library",
+  "purpose": "Publish and read bounded local status observations. An independent Python library with command-line readers.",
+  "ref": "1c25def3e540082367b206d46021fc3128e7e51e",
+  "repository": "bkrabach/amplifier-platform-status",
+  "roles": [],
+  "start_cta": {
+    "label": "Read the library guide",
+    "url": "https://github.com/bkrabach/amplifier-platform-status/blob/1c25def3e540082367b206d46021fc3128e7e51e/README.md#publish-and-read"
+  },
+  "summary": "A publisher, reader and optional hook exchange versioned local JSON observations. Callers choose private storage and session identity; no network service is introduced.",
+  "supports_roles": [],
+  "visibility": "public"
+}
