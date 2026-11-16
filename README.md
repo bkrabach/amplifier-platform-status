@@ -10,6 +10,24 @@ instructions to replay work. Missing information remains unknown. An ended
 observation does not establish that work succeeded, and a stale observation after
 a crash does not establish that work ended.
 
+## Ecosystem map
+
+[Project overview](https://microsoft.github.io/amplifier-constellation/projects/amplifier-platform-status/) ·
+[Open the map](https://github.com/bkrabach/amplifier-platform-status/blob/main/docs/ecosystem-map.svg) ·
+[Map guide](https://github.com/microsoft/amplifier-constellation/blob/main/docs/ecosystem-maps.md)
+
+![Supporting package responsibilities and the surrounding ecosystem](https://raw.githubusercontent.com/bkrabach/amplifier-platform-status/main/docs/ecosystem-map.svg)
+
+<details>
+<summary>The wider Constellation ecosystem</summary>
+
+![Constellation's five roles and their relationships](https://raw.githubusercontent.com/microsoft/amplifier-constellation/main/site/assets/art/building-blocks.png)
+
+</details>
+
+These maps are generated from the [canonical registry](https://github.com/microsoft/amplifier-constellation/blob/main/docs/ecosystem/registry.json).
+Update that source and refresh the local maps together; a map is not a release or compatibility claim.
+
 ## Publish and read
 
 Callers explicitly choose a private local directory and own the session identity:
