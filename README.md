@@ -128,21 +128,44 @@ The public `amplifier_status` namespace is distinct from Unified’s private
 installed files; installing this package does not replace Unified’s selected
 private emitter.
 
-## Existing delivery and future publication
+## Immutable artifact delivery
 
-Unified continues to select the immutable [status-emitter-v0.1.0 artifacts](https://github.com/microsoft/amplifier-unified/releases/tag/status-emitter-v0.1.0)
+Historical Unified selections use the immutable [status-emitter-v0.1.0 artifacts](https://github.com/microsoft/amplifier-unified/releases/tag/status-emitter-v0.1.0)
 from their original public producer. The original source receipt, revision,
 subdirectory and hashes remain historical identities; this repository does not
 republish or relabel those artifacts. Unified’s generated `amplifier_web/status_protocol/`
 is selected by `components/status-emitter.source.json` and verified offline during
 normal builds. Do not edit that generated copy by hand.
 
-The [package workflow](.github/workflows/package.yml) builds one wheel and source
-archive, then tests that wheel outside the checkout. It does not publish a release
-or change any consumer. A future publication needs an exact source/artifact
-receipt and review of Unified’s selector for this repository-root project layout;
-the existing selector identifies historical monorepo subdirectories. Source moves
-do not reserve a new version or make the original receipts invalid.
+The [package workflow](.github/workflows/package.yml) builds and seals an exact
+merged revision, then tests the original wheel outside the checkout. Pull requests
+qualify their proposed revision without publishing. A manual run on `main` may
+publish only after the installed checks pass; source acceptance alone does not
+change Unified's selected private emitter or enable observation publication.
+
+The release tag is `status-emitter-v<version>`. Its four immutable assets are the
+`amplifier_status_emitter` wheel and source archive, `status-emitter-source.json`,
+and `SHA256SUMS`. The schema-1 receipt explicitly records this repository, root
+subdirectory `.`, full revision/tree, version and exact package/test/governance
+input hashes. It preserves the `amplifier_status` import and both the CLI and
+optional hook entry points; it does not introduce runtime dependencies.
+
+For a merged revision, inspect the normal delivery plan before dispatching the
+workflow with that same full SHA:
+
+```sh
+python scripts/release.py plan --revision FULL_MERGED_COMMIT
+```
+
+Publication never overwrites a tag or asset. An interrupted or uncertain request
+is not automatically retried. An explicit later invocation reads the exact tag,
+draft identity and asset bytes; it uploads only missing matching draft assets,
+refuses conflicts, and leaves unrelated releases untouched. A complete matching
+publication is a read-only result. These releases do not become the repository's
+application `latest` release.
+
+Unified adoption remains a separate selection and installed-ownership review.
+Historical source receipts, tags and artifacts remain unchanged.
 
 ## Project guidance
 
